@@ -1,4 +1,4 @@
-# Movie Review Site
+# RateFlix
 Rails 4 app for rating and reviewing movies.
 
 ## Features
