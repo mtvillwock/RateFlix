@@ -1,0 +1,6 @@
+<% if review %>
+<p><%= review.user_email %> rated this film: <%= review.rating %>/10 on <%= review.date_published %></p>
+<p>Comment: <%= review.comment %></p>
+<% else %>
+<p>This film has no reviews yet.</p>
+<% end %>
