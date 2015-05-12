@@ -19,33 +19,25 @@ class MoviesController < ApplicationController
   end
 
   def create
-    p "params are: "
-    p params
     title = params[:movie][:title]
     @movie = Movie.find_by(title: title)
     p @movie
     if @movie
-      p "movie already existed"
       redirect_to "/movies/#{@movie.id}"
     elsif
-      p "searched movie is being built"
       response = search(title)
-      p "response hash is: "
-      p response
       @movie = Movie.create!(title: response[:title],
                              release_date: response[:release_date],
                              tmdb_id: response[:tmdb_id])
       p @movie
       genres = find_movie_genres(@movie.tmdb_id.to_s)
       build_movie_genres(movie: @movie, genres: genres)
-      redirect_to "/movies/#{@movie.id}"
     else
       render json: {error: "movie failed to be found"}
     end
   end
 
   def update
-    p params
     if params[:id] == "genre"
       @movies = Movie.all
       @genres_and_movies = zip_genre_to(@movies)

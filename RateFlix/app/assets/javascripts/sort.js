@@ -24,11 +24,6 @@ function releaseDateSortListener(){
   $('.container').on('click', 'button.release-date', sortByReleaseDate);
 }
 
-// function parseMovies(movies) {
-//   // convert HTML to JSON
-//   // pass to buildMovie
-// }
-
 function buildMovie(data) {
   var movieTemplate = $.trim($('#movie-template').html());
   var $movie = $(movieTemplate);
@@ -43,8 +38,7 @@ function sortByGenre() {
   event.preventDefault();
   var movies = $('.movie')
   $('.movie-list').empty();
-  // iterate through movies and grab title, genres, and release date
-  // build div again
+
   $.ajax({
     url: '/movies/genre',
     type: 'put',
@@ -70,8 +64,7 @@ function sortByReleaseDate(){
   event.preventDefault();
   var movies = $('.movie')
   $('.movie-list').empty();
-  // iterate through movies and grab title, genres, and release date
-  // build div again
+
   $.ajax({
     url: '/movies/release_date',
     type: 'put',

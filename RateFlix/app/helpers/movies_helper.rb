@@ -47,9 +47,6 @@ module MoviesHelper
     # parse through array of results for movie hash with title == input title
     @movie_json = {}
     movies_array.each do |movie|
-      p title
-      p movie["title"]
-      p movie
       if movie["title"].downcase == title.downcase
         return @movie_json = { title: movie["title"],
                          release_date: movie["release_date"],
