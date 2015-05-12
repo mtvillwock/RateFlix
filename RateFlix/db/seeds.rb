@@ -8,3 +8,4 @@
 include MoviesHelper
 genre_array = genre_list
 build_genres(genre_array)
+

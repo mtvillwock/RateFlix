@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="container">
+    <h1><%= link_to '/' do %>RateFlix<% end %></h1>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
