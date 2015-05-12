@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
   has_many :reviews
 
-  validates_presence_of :title, :release_date, :genre
+  validates_presence_of :title, :release_date, :genre, :tmdb_id
+  validates_uniqueness_of :tmdb_id
 end

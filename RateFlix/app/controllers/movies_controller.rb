@@ -2,13 +2,13 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    render json: @movie.all
   end
 
   def show
     if !params[:id].nil?
     @movie = Movie.find(params[:id])
     render json: @movie
-    # how to do this as a partial?
   end
   def create
     p params
@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
                       release_date: params[:release_date],
                       genre: params[:genre])
     if movie.save
-      redirect '/'
+      render json: movie
     else
       render json: { error: "movie did not save"}
     end
