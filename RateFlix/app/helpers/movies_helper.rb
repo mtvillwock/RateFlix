@@ -20,7 +20,7 @@ module MoviesHelper
   end
 
   def find_movie_genres(id)
-    p movie_id = id
+    p movie_id = id.to_s
     p response = HTTParty.get(BASE_URI + "/movie/#{movie_id}?api_key=" + ENV['API_KEY'])
     p movie_genres = response.parsed_response["genres"]
   end
@@ -57,11 +57,4 @@ module MoviesHelper
       end
     end
   end
-
-  # def release_date(movie)
-  #   # movie = Movie.find_by(release_date)
-  #   movie_id =
-  #   # http://guides.rubyonrails.org/active_record_querying.html#ordering
-  #   HTTParty.get(BASE_URI + '/movie/#{movie_id}/releases', @options)
-  # end
 end
