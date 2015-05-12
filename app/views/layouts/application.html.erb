@@ -3,12 +3,14 @@
 <head>
   <title>RateFlix</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="container">
+    <h1><%= link_to '/' do %>RateFlix<% end %></h1>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

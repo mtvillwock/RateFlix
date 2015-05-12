@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'httparty'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -35,6 +37,11 @@ gem 'dotenv-rails', :groups => [:development, :test]
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem "faker"
+  gem 'rspec-rails', '~> 3.0'
+  gem "factory_girl_rails"
+  gem 'shoulda-matchers'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -45,3 +52,8 @@ group :development, :test do
   gem 'spring'
 end
 
+# deployment
+group :production do
+  gem 'thin'
+  gem 'rails_12factor'
+end

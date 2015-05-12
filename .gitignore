@@ -17,3 +17,6 @@
 
 #Ignore DS Store
 .DS_Store
+=======
+# Ignore pow environment settings
+.powenv
