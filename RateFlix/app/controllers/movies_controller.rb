@@ -47,17 +47,13 @@ class MoviesController < ApplicationController
   def update
     p params
     if params[:id] == "genre"
-      p @movies = Movie.all
-      @genres = []
-      @movies.each do |movie|
-        @genres << movie.genres.first.name
-      end
-      p @genres_and_movies = @genres.zip(@movies)
+      @movies = Movie.all
+      @genres_and_movies = zip_genre_to(@movies)
       render json: @genres_and_movies
     elsif params[:id] == "title"
       @movies_by_title = Movie.order(title: :asc)
       render json: @movies_by_title
-    elsif params[:id] == "title"
+    elsif params[:id] == "release_date"
       @movies_by_release_date = Movie.order(release_date: :asc)
       render json: @movies_by_release_date
     else

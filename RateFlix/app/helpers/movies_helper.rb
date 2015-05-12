@@ -57,4 +57,12 @@ module MoviesHelper
       end
     end
   end
+
+  def zip_genre_to(movies)
+    genres = []
+    movies.each do |movie|
+        genres << movie.genres.first.name
+      end
+    genres_and_movies = genres.zip(movies)
+  end
 end

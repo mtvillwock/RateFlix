@@ -59,14 +59,59 @@ function sortByGenre() {
     console.log("fail response is: " + response);
   }).always(function(response) {
     console.log("always response is: " + response);
-  })
-  // debugger;
+  });
 };
 
 function sortByReleaseDate(){
-
+  event.preventDefault();
+  var movies = $('.movie')
+  $('.movie-list').empty();
+  // iterate through movies and grab title, genres, and release date
+  // build div again
+  $.ajax({
+    url: '/movies/release_date',
+    type: 'put',
+  })
+  .done(function(response) {
+    for (var i = 0; i < response.length; i++) {
+      var genre = response[i][0]; // genre
+      var movie = response[i][1]; // object
+      var data = { title: movie.title, genre: genre, release_date: movie.release_date, id: movie.id }
+      // {data: { title: title, genre: genre, release_date: release_date, id: id}}
+      var movieDiv = buildMovie(data);
+      $('.movie-list').append(movieDiv);
+    };
+    console.log("done response is: " + response);
+  }).fail(function(response) {
+    console.log("fail response is: " + response);
+  }).always(function(response) {
+    console.log("always response is: " + response);
+  });
 };
 
 function sortByTitle(){
-
+  event.preventDefault();
+  var movies = $('.movie')
+  $('.movie-list').empty();
+  // iterate through movies and grab title, genres, and release date
+  // build div again
+  $.ajax({
+    url: '/movies/title',
+    type: 'put',
+  })
+  .done(function(response) {
+    for (var i = 0; i < response.length; i++) {
+      var genre = response[i][0]; // genre
+      var movie = response[i][1]; // object
+      var data = { title: movie.title, genre: genre, release_date: movie.release_date, id: movie.id }
+      // {data: { title: title, genre: genre, release_date: release_date, id: id}}
+      var movieDiv = buildMovie(data);
+      $('.movie-list').append(movieDiv);
+    };
+    console.log("done response is: " + response);
+  }).fail(function(response) {
+    console.log("fail response is: " + response);
+  }).always(function(response) {
+    console.log("always response is: " + response);
+  });
 };
