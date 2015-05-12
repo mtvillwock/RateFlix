@@ -1,3 +1,9 @@
-<p>Title: <%= movie.title %></p>
-<p>Genre(s): <%= movie.genres.each do |genre| genre.name %> </p>
+<p>Title:<%= link_to "/movies/#{movie.id}" do %><%= movie.title %><% end %></p>
+<p>Genre(s):
+  <% if movie.genres.length > 0 %>
+  <% movie.genres.each do |genre| %>
+  <%= genre.name %>
+  <% end %>
+  <% end %>
+</p>
 <p>Release Date: <%= movie.release_date %></p>

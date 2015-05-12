@@ -1,7 +1,9 @@
-<h1>Movies</h1>
-<% if !@movies.empty? %>
+<h2>Review Movies</h2>
+<%= render 'create' %>
+<p>Sort by: <button class="Genre">Genre</button>  <button class="Title">Title</button>  <button class="Release Date">Release Date</button></p>
+<% if @movies.length > 0 %>
 <% @movies.each do |movie| %>
 <!-- or render movie? -->
-<%= render 'movie' %>
+<%= render movie %>
 <% end %>
 <% end %>

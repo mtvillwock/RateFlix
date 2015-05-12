@@ -1,6 +1,10 @@
-<h1>Specific Movie</h1>
+<h2><%= link_to @movie do %><%= @movie.title %><% end %></h2>
 <% if @movie %>
-<%= render @movie %>
-<!-- or ERB interpolate -->
-<% end %>
+  <%= render @movie %>
+  <% end %>
 <%= render 'reviews/create' %>
+<% if @reviews %>
+  <% @reviews.each do |review| %>
+<%= render review %>
+  <% end %>
+<% end %>
