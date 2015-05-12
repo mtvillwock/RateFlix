@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512052757) do
+ActiveRecord::Schema.define(version: 20150512064815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genre_movies", force: :cascade do |t|
+    t.integer "movie_id", null: false
+    t.integer "genre_id", null: false
+  end
+
+  add_index "genre_movies", ["genre_id"], name: "index_genre_movies_on_genre_id", using: :btree
+  add_index "genre_movies", ["movie_id"], name: "index_genre_movies_on_movie_id", using: :btree
 
   create_table "genres", force: :cascade do |t|
     t.integer "tmdb_id"
@@ -26,14 +34,6 @@ ActiveRecord::Schema.define(version: 20150512052757) do
     t.date    "release_date"
     t.integer "tmdb_id"
   end
-
-  create_table "movies_genres", id: false, force: :cascade do |t|
-    t.integer "movie_id", null: false
-    t.integer "genre_id", null: false
-  end
-
-  add_index "movies_genres", ["genre_id"], name: "index_movies_genres_on_genre_id", using: :btree
-  add_index "movies_genres", ["movie_id"], name: "index_movies_genres_on_movie_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer "movie_id"

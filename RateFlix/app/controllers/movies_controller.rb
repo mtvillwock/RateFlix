@@ -6,12 +6,13 @@ class MoviesController < ApplicationController
   end
 
   def show
-    if !params[:id].nil?
-      @movie = Movie.find_by(id: params[:id])
-      render 'show'
-    else
-      render json: { error: "no movie id provided"}
-    end
+    @movie = Movie.find_by(id: params[:id])
+    @review = Review.new(user_email: params[:user_email],
+                         rating: params[:rating].to_s,
+                         date_published: params[:date_published],
+                         comment: params[:comment],
+                         movie_id: @movie.id)
+    render 'show'
   end
 
   def create
