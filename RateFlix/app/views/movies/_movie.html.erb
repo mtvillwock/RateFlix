@@ -1,11 +1,11 @@
 <div class="movie">
-  <p class="title">Title:<%= link_to "/movies/#{movie.id}" do %><%= movie.title %><% end %></p>
-  <p class="genre">Genre(s):
+  <p class="title"><%= link_to "/movies/#{movie.id}" do %><%= movie.title %><% end %></p>
+  <p class="genre">
     <% if movie.genres.length > 0 %>
     <% movie.genres.each do |genre| %>
     <%= genre.name %>
     <% end %>
     <% end %>
   </p>
-  <p class="release-date">Release Date: <%= movie.release_date %></p>
+  <p class="release-date"><%= movie.release_date %></p>
 </div>
