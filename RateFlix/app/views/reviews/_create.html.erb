@@ -1,0 +1,15 @@
+<%= form_for([@movie, @review]) do |f| %>
+  <p>
+    <%= f.text_field :user_email, placeholder: "your email" %>
+  </p>
+  <p>
+    <%= f.text_field :rating, placeholder: "rating out of 10" %>
+  </p>
+  <p>
+    <%= f.text_area :comment, placeholder: "additional comment" %>
+  </p>
+  <p>
+    <%= select_date Date.today, prefix: :date_published %>
+  </p>
+  <%= f.submit %>
+<% end %>
