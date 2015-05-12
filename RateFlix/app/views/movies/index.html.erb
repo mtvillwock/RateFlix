@@ -1,9 +1,19 @@
 <h2>Review Movies</h2>
 <%= render 'create' %>
-<p>Sort by: <button class="Genre">Genre</button>  <button class="Title">Title</button>  <button class="Release Date">Release Date</button></p>
+<p>Sort by: <button class="genre">Genre</button>  <button class="title">Title</button>  <button class="release-date">Release Date</button></p>
 <% if @movies.length > 0 %>
-<% @movies.each do |movie| %>
-<!-- or render movie? -->
-<%= render movie %>
-<% end %>
-<% end %>
+<div class="movie-list">
+  <% @movies.each do |movie| %>
+  <!-- or render movie? -->
+  <%= render movie %>
+  <% end %>
+  <% end %>
+</div>
+
+<div id="movie-template" style="display: none;">
+  <div class="movie">
+    <p class="title">Title: </p>
+    <p class="genre">Genre(s): </p>
+    <p class="release-date">Release Date: </p>
+  </div>
+</div>
