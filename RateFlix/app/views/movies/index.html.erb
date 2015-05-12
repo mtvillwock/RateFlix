@@ -1,6 +1,7 @@
 <h1>Movies</h1>
 <% if !@movies.empty? %>
 <% @movies.each do |movie| %>
-<p><%= render movie %></p>
+<!-- or render movie? -->
+<%= render 'movie' %>
 <% end %>
 <% end %>

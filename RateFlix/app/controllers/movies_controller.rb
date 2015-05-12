@@ -1,15 +1,19 @@
 class MoviesController < ApplicationController
-
+  include MoviesHelper
   def index
     @movies = Movie.all
-    render json: @movie.all
+    render 'index'
   end
 
   def show
     if !params[:id].nil?
-    @movie = Movie.find(params[:id])
-    render json: @movie
+      @movie = Movie.find_by(id: params[:id])
+      render 'show'
+    else
+      render json: { error: "no movie id provided"}
+    end
   end
+
   def create
     p params
     movie = Movie.new(title: params[:title],
