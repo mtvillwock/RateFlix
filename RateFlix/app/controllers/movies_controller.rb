@@ -52,10 +52,12 @@ class MoviesController < ApplicationController
       render json: @genres_and_movies
     elsif params[:id] == "title"
       @movies_by_title = Movie.order(title: :asc)
-      render json: @movies_by_title
+      @genres_and_movies = zip_genre_to(@movies_by_title)
+      render json: @genres_and_movies
     elsif params[:id] == "release_date"
       @movies_by_release_date = Movie.order(release_date: :asc)
-      render json: @movies_by_release_date
+      @genres_and_movies = zip_genre_to(@movies_by_release_date)
+      render json: @genres_and_movies
     else
       render json: {error: "sort call failed"}
     end
