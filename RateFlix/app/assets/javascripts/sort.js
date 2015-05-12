@@ -1,11 +1,15 @@
 $(document).ready(function(){
+  console.log("document ready");
   bindEvents();
 });
+
+$(document).on('page:load', bindEvents);
 
 function bindEvents(){
   titleSortListener();
   genreSortListener();
   releaseDateSortListener();
+  console.log("bindEvents fired");
 }
 
 function titleSortListener(){
